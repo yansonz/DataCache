@@ -163,7 +163,7 @@ cache.info <- function(cache.dir = 'cache',
 	}
 	results <- data.frame()
 	if(file.exists(cache.dir)) {
-		cache.files <- list.files(path=cache.dir, pattern=paste0(cache.name, '*'))
+		cache.files <- list.files(path=cache.dir, pattern = paste0("^", cache.name,"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
 		cache.files <- cache.files[grep('*.rda$', cache.files)] # Get only .rda files
 		if(length(cache.files) > 0) {
 			timestamps <- substr(cache.files, 
